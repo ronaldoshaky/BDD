@@ -1,0 +1,20 @@
+version: "3.2"
+services:
+  cli:
+    build:
+      context: docker/cli
+    tty: true
+    volumes:
+      - ./:/formassembly/instances/fd/local
+      - ./logs:/formassembly/instances/fd/logs
+      - ~/.composer:/opt/composer
+  selenium:
+    command: bash -c "rm /tmp/.X99-lock || echo 'Lock not found, continuing normal startup' && export no_proxy=*.local && /opt/bin/entry_point2.sh"
+    build:
+      context: docker/firefox
+    volumes:
+      - ./:/formassembly/instances/fd/local
+      - ./logs:/logs
+    ports:
+      - "5904:5900"
+      - "4444:4444"
