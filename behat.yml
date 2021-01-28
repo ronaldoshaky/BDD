@@ -9,8 +9,9 @@ default:
             contexts:
                 - FeatureContext
     extensions:
+        SensioLabs\Behat\PageObjectExtension: ~ 
         Behat\MinkExtension:
-            base_url:  'https://www.example.org'
+            base_url:  'https://www.tfaforms.com/4710335'
             sessions:
                 javascript:
                     selenium2:
