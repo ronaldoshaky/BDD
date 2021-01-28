@@ -12,6 +12,14 @@ class EmailPage extends Page
 		$this->fillField($emailLabel, $emailAddress);
 	}
 
+	public function checkTheFavouriteFoodOption($option) {
+		$this->checkField($option);
+	}
+
+	public function uncheckTheFavouriteFoodOption($option) {
+		$this->uncheckField($option);
+        }
+
 
         public function submitTheForm($submitButton) {
 		$this->pressButton($submitButton);
