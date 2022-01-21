@@ -4,6 +4,7 @@ namespace Pages;
 
 use SensioLabs\Behat\PageObjectExtension\PageObject\Page;
 use WebDriver\Exception\NoAlertOpenError;
+use Pages\Elements\EmailPageCheeseForm;
 
 class EmailPage extends Page
 {
@@ -24,7 +25,12 @@ class EmailPage extends Page
         public function submitTheForm($submitButton) {
 		$this->pressButton($submitButton);
 		$this->acceptAlert();
-        }
+	}
+
+	public function attachingFileForUpload($filePath) {
+		$returnValue = $this->getElement(EmailPageCheeseForm::class)->attachFile($filePath);
+		#var_dump($returnValue->getText());
+	}
 
 	public function acceptAlert(){
     		$i = 0;
